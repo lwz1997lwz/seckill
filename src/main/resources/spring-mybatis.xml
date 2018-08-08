@@ -15,9 +15,9 @@
 	<!-- 配置数据库连接参数及连接池 -->
 	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://10.10.38.193:3306/db_practice?characterEncoding=utf-8" />
-		<property name="username" value="practice"/>
-		<property name="password" value="123456"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/seckill?characterEncoding=utf-8" />
+		<property name="username" value="root"/>
+		<property name="password" value="mnn520"/>
 	</bean>
 	
 	<!-- spring集成mybatis，不再需要mybatis的配置文件 -->
@@ -29,6 +29,8 @@
 		<property name="mapperLocations" value="classpath:org/seckill/dao/*.xml"></property>
 		<property name="configLocation" value="classpath:mybatis-config.xml"></property><!--配置 mybatis日志-->
 	</bean>
+	
+	<!-- 采用构造注入 -->
 	<bean id="jedisDao" class="org.seckill.dao.cache.JedisDao">
 	   <constructor-arg index="0" value="localhost"></constructor-arg>
 	   <constructor-arg index = "1" value="6379"></constructor-arg>

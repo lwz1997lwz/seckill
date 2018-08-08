@@ -1,6 +1,6 @@
 package org.seckill.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * @author Linweizhe

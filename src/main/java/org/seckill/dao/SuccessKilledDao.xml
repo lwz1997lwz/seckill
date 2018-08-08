@@ -4,8 +4,8 @@
 
 	
 <insert id="insertSuccessKilled" >
-	insert ignore into success_killed(seckill_id,user_phone)
-	 values(#{seckillId},#{userPhone})
+	insert ignore into success_killed(seckill_id,user_phone,state)
+	 values(#{seckillId},#{userPhone},0);
 </insert>
 
 <select id="queryByIdWithSeckill" resultType="org.seckill.entity.SuccessKilled">
