@@ -42,7 +42,6 @@ var seckill = {
                     backdrop: 'static',//禁止位置关闭
                     keyboard: false//关闭键盘事件
                 });
-
                 $('#killPhoneBtn').click(function () {
                     var inputPhone = $('#killPhoneKey').val();
                     console.log("inputPhone: " + inputPhone);
@@ -79,7 +78,6 @@ var seckill = {
     handlerSeckill: function (seckillId, node) {
         //获取秒杀地址,控制显示器,执行秒杀
         node.hide().html('<button class="btn btn-primary btn-lg" id="killBtn">开始秒杀</button>');
-
         $.post(seckill.URL.exposer(seckillId), {}, function (result) {
             //在回调函数种执行交互流程
             if (result && result['success']) {

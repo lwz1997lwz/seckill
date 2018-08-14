@@ -73,7 +73,7 @@
 <script src="http://cdn.bootcss.com/jquery.countdown/2.1.0/jquery.countdown.min.js"></script>
 
 <!-- 一定要带项目名称 -->
-<script src="/seckill/js/seckill.js" type="text/javascript"></script>
+<script src="/js/seckill.js" type="text/javascript"></script>
 
 <script type="text/javascript">
     $(function(){

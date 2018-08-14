@@ -15,9 +15,9 @@
 	<!-- 配置数据库连接参数及连接池 -->
 	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/seckill?characterEncoding=utf-8" />
-		<property name="username" value="root"/>
-		<property name="password" value="mnn520"/>
+		<property name="url" value="jdbc:mysql://10.10.38.193:3306/db_practice?characterEncoding=utf-8" />
+		<property name="username" value="practice"/>
+		<property name="password" value="123456"/>
 	</bean>
 	
 	<!-- spring集成mybatis，不再需要mybatis的配置文件 -->

@@ -1,8 +1,5 @@
 package org.seckill.dao.cache;
 
-import static org.junit.Assert.*;
-
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.seckill.dao.SeckillDao;
@@ -10,6 +7,7 @@ import org.seckill.entity.Seckill;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring-mybatis.xml")
 public class JedisDaoTest {
@@ -17,12 +15,11 @@ public class JedisDaoTest {
     private JedisDao jedisDao;
     @Autowired
     private SeckillDao seckillDao;
- 
 
     @Test
     public void testSeckill() {
         int id = 1000;
-       Seckill seckill = jedisDao.getSeckill(id);
+        Seckill seckill = jedisDao.getSeckill(id);
         if (seckill == null) {
             seckill = seckillDao.queryById(id);
             if (seckill != null) {

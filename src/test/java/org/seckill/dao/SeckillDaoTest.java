@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * @author lin_wz 配置spring和junit整合，junit启动时加载springIOC容器 spring-test，junit
+ * @author lin_wz ????spring??junit?????junit?????????springIOC???? spring-test??junit
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring-mybatis.xml")
@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class SeckillDaoTest {
 
     /**
-     * 注入seckillDao
+     * ???seckillDao
      */
     @Resource
     private SeckillDao seckillDao;

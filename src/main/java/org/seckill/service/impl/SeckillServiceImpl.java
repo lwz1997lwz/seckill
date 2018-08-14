@@ -86,7 +86,7 @@ public class SeckillServiceImpl implements SeckillService {
     
     // 秒杀是否成功，成功:减库存，增加明细；失败:抛出异常，事务回滚
     @Override
-    @Transactional
+    @Transactional(rollbackFor={SeckillException.class,RepeatKillException.class,})
     public SeckillExecution excuteSeckill(long seckillId, long userPhone, String md5)
             throws SeckillException, SeckillCloseException, RepeatKillException {
         if (md5 == null || !md5.equals(getMD5(seckillId))) {
@@ -97,7 +97,7 @@ public class SeckillServiceImpl implements SeckillService {
         Date nowTime = new Date();
         //抛出runtime异常可以使事务回滚保证原子性
         try {
-
+            //插入购买明细
             int updateCount = seckillDao.reduceNumber(seckillId, nowTime);
             if (updateCount <= 0) {
                 throw new SeckillException("秒杀失败");

@@ -1,6 +1,4 @@
 package org.seckill.serviceimpl;
-
-
 import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -50,6 +48,10 @@ public class SeckillServiceImplTest {
         String md5 = "5d9523946372dad64aa26e1d7737fc2c";
         long userPhone = 13578929999L;
 
+        testExcute(seckillId, md5, userPhone);
+    }
+
+    private void testExcute(long seckillId, String md5, long userPhone) {
         try {
             SeckillExecution seckillExecution = seckillService.excuteSeckill(seckillId, userPhone, md5);
             logger.info("seckillExecution:{}", seckillExecution);
@@ -70,14 +72,7 @@ public class SeckillServiceImplTest {
         Exposer exposer = seckillService.exposeSeckillUrl(seckillId);
         String md5 = exposer.getMd5();
         if (md5 != null) {
-            try {
-                SeckillExecution seckillExecution = seckillService.excuteSeckill(seckillId, userPhone, md5);
-                logger.info("seckillExecution:{}", seckillExecution);
-            } catch (SeckillCloseException e1) {
-                e1.printStackTrace();
-            } catch (RepeatKillException e2) {
-                e2.printStackTrace();
-            }
+            testExcute(seckillId, md5, userPhone);
         } else {
             // ÃëÉ±Î´¿ªÆô
             logger.info("exposer:{}", exposer);
